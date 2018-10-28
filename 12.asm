@@ -19,9 +19,9 @@ start:  mov ax,cs
     	int 21h
 
 do0:    jmp short do0start
-    	db "overflow!"
+    	db 'overflow!'
     
-do0start:   push cx       
+do0start:       
    			mov ax,cs
     		mov ds,ax
     		mov si,202h
@@ -33,13 +33,10 @@ do0start:   push cx
     		mov cx,9
 		s:  mov al,[si]
     		mov es:[di],al
-    		mov al,2
-    		mov es:[di+1],al
 		    inc si
 		    add di,2
 		    loop s
 
-		    pop cx
 		    mov ax,4c00h
 		    int 21h
 
